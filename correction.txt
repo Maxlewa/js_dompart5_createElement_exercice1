@@ -1,0 +1,50 @@
+let body = document.body
+console.log(body);
+
+//1
+let idContent = document.querySelector('#content')
+let monTitreh2 = document.createElement('h2')
+monTitreh2.innerText = "Part 6 - Exercice1"
+idContent.appendChild(monTitreh2)
+
+//2
+let paraLorem = document.createElement('p')
+paraLorem.innerText = 'Lorem ipsum'
+idContent.appendChild(paraLorem)
+
+//3
+let monTitreh1 = document.createElement('h1')
+monTitreh1.innerText = 'Le Dom - création de html'
+// idContent.prepend(monTitreh1)
+idContent.insertBefore(monTitreh1, monTitreh2)
+
+//4
+let contenuId = idContent.innerHTML
+let idSecondaire = document.querySelector('#secondaire')
+idSecondaire.innerHTML = contenuId
+idSecondaire.querySelector('h2').innerText = 'Part 6 - Exercice 2'
+
+//5
+
+//create div
+let idMatiere = document.createElement('div')
+idMatiere.setAttribute('id', 'matiere')
+
+// insert proprement 
+// let myScript = document.querySelector('script')
+// body.insertBefore(idMatiere, myScript)
+body.insertBefore(idMatiere, idSecondaire.nextElementSibling)
+
+// create list
+let myOl = document.createElement('ol')
+idMatiere.appendChild(myOl)
+
+let maMatiere = ['html', 'css', 'javascript']
+
+//for each
+maMatiere.forEach(el => {
+    let myLi = document.createElement('li')
+    myLi.innerText = el
+    myOl.appendChild(myLi)
+});
+
